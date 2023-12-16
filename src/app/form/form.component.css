@@ -1,0 +1,30 @@
+header, legend {
+    font-family: 'Ubuntu', sans-serif;
+}
+header {
+    padding-top: 2em;
+}
+fieldset {
+    padding: 1em;
+    margin: 1em 0;
+}
+fieldset:hover {
+    background-color: #f3f3f3;
+}
+legend {
+    color: var(--primary);
+}
+label {
+    margin: 0.5em 0 0.25em;
+}
+.map {
+    width: 100%;
+    height: 30vh;
+    min-height: 300px;
+}
+.controls {
+    font-family: 'Ubuntu', sans-serif;
+}
+.map-err {
+    display: block;
+}

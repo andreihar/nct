@@ -1,0 +1,21 @@
+* {
+    font-family: 'Ubuntu', sans-serif;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 2em 0;
+    align-items: center;
+}
+img {
+    max-width: 300px;
+    max-height: 300px;
+}
+.cont {
+    background-color: #f3f3f3;
+    padding: 1em;
+    margin: 1em 0;
+}
+#status span {
+    margin-left: 6px;
+}

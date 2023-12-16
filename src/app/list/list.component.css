@@ -1,0 +1,12 @@
+ul button {
+    margin: 0 0.25em;
+}
+#sort {
+    display: flex;
+    margin-bottom: 1em;
+    align-items: center;
+    gap: 1em;
+}
+#sort select {
+    max-width: 7.5em;
+}

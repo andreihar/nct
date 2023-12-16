@@ -1,0 +1,57 @@
+<div class="wrapper">
+    <header>
+        <h2>Report</h2>
+        <button type="button" class="btn-outline-primary" (click)="openDialogue()">CHANGE STATUS</button>
+    </header>
+    <div id="mapid"></div>
+    <main *ngIf="index !== -1">
+        <section class="cont">
+            <h3>Villain</h3>
+            <p>Name: {{ reports[index].name }}</p>
+            <p id="status">Status: 
+                <span class="green" *ngIf="reports[index]._status === 'RESOLVED'"><fa-icon [icon]="faLock"></fa-icon>{{ reports[index]._status }}</span>
+                <span class="red" *ngIf="reports[index]._status === 'OPEN'"><fa-icon [icon]="faUnlock"></fa-icon>{{ reports[index]._status }}</span>
+            </p>
+            <img id="reportImage" *ngIf="reports[index].picture" src="{{ reports[index].picture }}" alt="{{ reports[index].name }}'s Picture">
+        </section>
+        <section class="cont">
+            <h3>Reporter</h3>
+            <p>Name: {{ reports[index].reporterName }}</p>
+            <p>Phone: {{ reports[index].phone }}</p>
+        </section>
+        <section class="cont">
+            <h3>Location</h3>
+            <p>Location: {{ reports[index].location }}</p>
+            <p>Time: {{ reports[index].dateTime | date:'medium' }}</p>
+            <p>Extra: {{ reports[index].extra }}</p>
+        </section>
+    </main>
+    <div class="right">
+        <button type="button" class="btn btn-outline-danger" routerLink="/">CLOSE</button>
+    </div>
+</div>
+
+<dialog id="passDialogue" open *ngIf="dialogueOn">
+    <section class="dialogue">
+        <h3>{{ dialogueT }}</h3>
+        <div *ngIf="passOk; then callBack else passForm"></div>
+    
+        <ng-template #passForm>
+            <form method="dialog">
+                <p>Type in the password to change the status</p>
+                <label for="pass">Password</label>
+                <input type="password" class="form-control mb-3" id="pass">
+            </form>
+            <div class="d-flex justify-content-between">
+                <button type="button" class="btn btn-outline-danger" (click)="closeDialogue()">CANCEL</button>
+                <button type="button" class="btn-outline-primary" (click)="changeStatus()">CHANGE</button>
+            </div>
+        </ng-template>
+        <ng-template #callBack>
+            <div id="val-msg">{{ dialogueMessage }}</div>
+            <div class="right">
+                <button type="button" class="btn btn-outline-danger" (click)="closeDialogue()">CLOSE</button>
+            </div>
+        </ng-template>
+    </section>
+</dialog>

@@ -1,0 +1,71 @@
+:root {
+    --primary: #001E4E;
+    --secondary: #000220;
+}
+body {
+    min-height: 100vh;
+}
+h2, h3 {
+    color: var(--primary);
+}
+.right {
+    text-align: right;
+}
+button.btn-outline-primary {
+    border: 1px solid var(--primary);
+    border-radius: 0.375rem;
+    background-color: #fff;
+    color: var(--primary);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 2em;
+}
+button.btn-outline-primary:hover {
+    background-color: var(--primary);
+    color: #fff;
+    transition: .3s;
+}
+div.wrapper {
+    padding: 2em 15vw;
+}
+#passDialogue {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, .7);
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#passDialogue section.dialogue {
+    width: 90%;
+    max-width: 400px;
+    background-color: #fff;
+    padding: 1em;
+    border-radius: 6px;
+    box-shadow: 0 2px 2px rgba(0,0,0,0.2);
+}
+#mapid {
+	width: 100%;
+	height: 70vh;
+	min-height: 18em;
+}
+#status span {
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+}
+#status span fa-icon {
+    margin-right: 6px;
+}
+.red {
+    background-color: #fb7d7d;
+}
+.green {
+    background-color: #95fe95;
+}
