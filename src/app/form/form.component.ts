@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import * as uuid from 'uuid';
@@ -6,6 +6,7 @@ import * as uuid from 'uuid';
 import { Location } from '../Location';
 import { Report } from '../Report';
 import { StorageService } from '../storage.service';
+import { faAngleUp, faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
     selector: 'app-form',
@@ -13,6 +14,7 @@ import { StorageService } from '../storage.service';
     styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
+    faAngleUp = faAngleUp; faAngleLeft = faAngleLeft
     locations:Location[] = new Array()
     reports:Report[] = new Array()
     form:FormGroup
@@ -20,6 +22,7 @@ export class FormComponent implements OnInit {
     coords:L.LatLng | null = null
     newLocValid = false; locValid = false; existingLoc = true
     locationErr:string = "Please enter a non-empty name"; mapErr:string = "";
+    @ViewChild('top') top!: ElementRef;
 
     constructor(private router:Router, private storage:StorageService) { 
         this.form = new FormGroup({
@@ -111,6 +114,10 @@ export class FormComponent implements OnInit {
             foundLocation._cases += increase ? 1 : -1
             this.storage.updateDocument("locations", JSON.stringify(this.locations))
         }
+    }
+
+    scrollToTop() {
+        this.top.nativeElement.scrollIntoView({ behavior: 'smooth' });
     }
 
     formatPhone(phone:string):string {

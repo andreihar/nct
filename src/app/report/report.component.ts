@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { Report } from '../Report';
 import { HashService } from '../hash.service';
 import { LeafletService } from '../leaflet.service';
 import { StorageService } from '../storage.service';
-import { faLock, faUnlock } from '@fortawesome/free-solid-svg-icons';
+import { faLock, faUnlock, faAngleUp, faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
     selector: 'app-report',
@@ -13,12 +13,13 @@ import { faLock, faUnlock } from '@fortawesome/free-solid-svg-icons';
     styleUrls: ['./report.component.css']
 })
 export class ReportComponent implements OnInit {
-    faUnlock = faUnlock; faLock = faLock
+    faUnlock = faUnlock; faLock = faLock; faAngleUp = faAngleUp; faAngleLeft = faAngleLeft
     reports:Report[] = new Array()
     reportID:string = ''
     index:number = -1
     passOk:boolean = false; dialogueOn:boolean = false
     dialogueT:string = ""; dialogueMessage:string = ""
+    @ViewChild('top') top!: ElementRef;
     constructor(private ActivatedRoute:ActivatedRoute, private storage:StorageService, private hash:HashService, private leaflet:LeafletService) {}
 
     ngOnInit(): void {
@@ -62,6 +63,10 @@ export class ReportComponent implements OnInit {
         } else {
             this.closeDialogue()
         }
+    }
+
+    scrollToTop() {
+        this.top.nativeElement.scrollIntoView({ behavior: 'smooth' });
     }
 
     private updateReportStatus() {

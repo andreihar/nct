@@ -1,6 +1,6 @@
-<div class="wrapper">
+<div #top class="wrapper">
     <header>
-        <h2>Create Report</h2>
+        <h2><button type="button" class="btn btn-outline-danger" routerLink="/"><fa-icon [icon]="faAngleLeft"></fa-icon></button> Create Report</h2>
     </header>
     <main>
         <form class="form-group" [formGroup]="form" (ngSubmit)="onSubmit()">
@@ -75,8 +75,9 @@
                 </div>
             </fieldset>
             <div class="controls d-flex justify-content-between">
-                <button type="button" class="btn btn-outline-danger" routerLink="/">CANCEL</button>
+                <div></div>
                 <button type="button" class="btn btn-outline-primary" (click)="onSubmit()">SUBMIT</button>
+                <button type="button" class="btn btn-outline-primary" (click)="scrollToTop()"><fa-icon [icon]="faAngleUp"></fa-icon></button>
             </div>
         </form>
     </main>

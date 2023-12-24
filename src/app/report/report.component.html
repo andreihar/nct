@@ -1,6 +1,6 @@
-<div class="wrapper">
+<div #top class="wrapper">
     <header>
-        <h2>Report</h2>
+        <h2> <button type="button" class="btn btn-outline-danger" routerLink="/"><fa-icon [icon]="faAngleLeft"></fa-icon></button> Report</h2>
         <button type="button" class="btn-outline-primary" (click)="openDialogue()">CHANGE STATUS</button>
     </header>
     <div id="mapid"></div>
@@ -27,7 +27,7 @@
         </section>
     </main>
     <div class="right">
-        <button type="button" class="btn btn-outline-danger" routerLink="/">CLOSE</button>
+        <button type="button" class="btn btn-outline-primary" (click)="scrollToTop()"><fa-icon [icon]="faAngleUp"></fa-icon></button>
     </div>
 </div>
 

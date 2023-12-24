@@ -17,7 +17,7 @@
 
 App to allow report of public nuisances. This Angular-based app features a robust set of functionalities, including a data table, report management, map display, and more.
 
-[Demo][demo]
+[Live Demo][demo]
 
 </div>
 
@@ -95,7 +95,7 @@ The website can be accessed through the URL `http://localhost:4200/`.
 The Home Page serves as the central hub for users to navigate through different aspects of the application. It includes a switch for toggling between the Map and Data List views.
 
 <p align="center">
-<img src="readme/home_page.jpg" alt="Home Page" width="200">
+<img src="readme/home_page.png" alt="Home Page" height="200">
 </p>
 
 #### Map Display
@@ -103,7 +103,7 @@ The Home Page serves as the central hub for users to navigate through different 
 A map displays all reported nuisances on an interactive map with markers. Users can interact with the markers to view the number of reports for each location.
 
 <p align="center">
-<img src="readme/map_view.jpg" alt="Map View" width="200">
+<img src="readme/map_view.png" alt="Map View" height="200">
 </p>
 
 #### Data List
@@ -111,7 +111,7 @@ A map displays all reported nuisances on an interactive map with markers. Users 
 A list presents a dynamic data table listing all nuisance reports. Users can sort the data by Time, Name, and Location. This provides a detailed and sortable overview of reported incidents.
 
 <p align="center">
-<img src="readme/list_view.jpg" alt="List View" width="200">
+<img src="readme/list_view.png" alt="List View" height="200">
 </p>
 
 ### Report Management
@@ -119,7 +119,7 @@ A list presents a dynamic data table listing all nuisance reports. Users can sor
 Users can modify the report status or delete reports with a valid passcode ("BaggyJeans"). The app uses MD5 hash for password verification.
 
 <p align="center">
-<img src="readme/report_details.jpg" alt="Report Details" width="200">
+<img src="readme/report_details.png" alt="Report Details" height="200">
 </p>
 
 ### Report Creation
@@ -127,7 +127,7 @@ Users can modify the report status or delete reports with a valid passcode ("Bag
 Users can generate reports through a "CREATE NUISANCE REPORT" button, revealing a user-friendly report form.
 
 <p align="center">
-<img src="readme/form.jpg" alt="Form" width="200">
+<img src="readme/form.png" alt="Form" height="200">
 </p>
 
 
