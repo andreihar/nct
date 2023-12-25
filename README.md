@@ -19,6 +19,12 @@ App to allow report of public nuisances. This Angular-based app features a robus
 
 [Live Demo][demo]
 
+
+
+https://github.com/andreihar/nct/assets/95883512/f3af6ccf-3d18-4ea8-a655-65aa37149859
+
+
+
 </div>
 
 
