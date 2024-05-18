@@ -38,11 +38,11 @@ export class FormComponent implements OnInit {
 
     ngOnInit(): void {
         this.storage.getObservable("locations").subscribe((data:any) => {
-            this.locations = JSON.parse(data.data)
+            this.locations = data
             this.existingLoc = !!this.locations.length
         })
         this.storage.getObservable("reports").subscribe((data:any) => {
-            this.reports = JSON.parse(data.data)
+            this.reports = data
         })
     }
 

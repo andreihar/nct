@@ -27,8 +27,8 @@ export class ListComponent implements OnInit {
     constructor(private router:Router, private storage:StorageService, private hash:HashService) {}
     
     ngOnInit(): void {
-        this.storage.getObservable('reports').subscribe((data:any) => {this.reports = JSON.parse(data.data)})
-        this.storage.getObservable('locations').subscribe((data:any) => {this.locations = JSON.parse(data.data)})
+        this.storage.getObservable('reports').subscribe((data:any) => {this.reports = data})
+        this.storage.getObservable('locations').subscribe((data:any) => {this.locations = data})
     }
 
     viewReport(reportID:string) {

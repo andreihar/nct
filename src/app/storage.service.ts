@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 import { Location } from './Location';
 import { Report } from './Report';
@@ -11,19 +12,19 @@ import { Report } from './Report';
 export class StorageService {
     locations:Location[] = new Array()
     reports:Report[] = new Array()
-    server:string = 'https://272.selfip.net/apps/4MUGoCA0QP/collections/nct2/documents/'
-    constructor(private http:HttpClient) { }
+    constructor(private firestore: AngularFirestore) { }
 
-    getReports():Report[] {
-        this.http.get(this.server + 'reports/').subscribe((data:any) => {this.reports = JSON.parse(data.data)})
-        return this.reports
+    getReports(): Observable<Report[] | undefined> {
+        return this.firestore.doc<{reports: Report[]}>('nct/reports').valueChanges()
+            .pipe(map(data => data?.reports));
     }
 
-    getObservable(document:string):Observable<Object> {
-        return this.http.get(this.server + document + '/')
+    getObservable(document:string): Observable<Object[] | undefined> {
+        return this.firestore.doc<{items: Object[]}>('nct/' + document).valueChanges()
+            .pipe(map(data => data?.items));
     }
 
     updateDocument(document: string, data: string) {
-        this.http.put(this.server + document + '/', { "key": document, "data": data }).subscribe();
+        this.firestore.doc('nct/' + document).set({items: JSON.parse(data)});
     }
 }

@@ -24,7 +24,7 @@ export class ReportComponent implements OnInit {
 
     ngOnInit(): void {
         this.storage.getObservable("reports").subscribe((data:any) => {
-            this.reports = JSON.parse(data.data)
+            this.reports = data
             const foundIndex = this.reports.findIndex(report => report.reportID === this.reportID)
             this.index = foundIndex !== -1 ? foundIndex : -1
             if(this.index !== -1) {

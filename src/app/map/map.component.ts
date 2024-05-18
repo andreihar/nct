@@ -16,7 +16,7 @@ export class MapComponent implements AfterViewInit, OnInit {
 
     ngOnInit(): void {
         this.storage.getObservable('locations').subscribe((data:any) => {
-            this.locations = JSON.parse(data.data)
+            this.locations = data
             this.createMarkers(this.locations.filter(location => location._cases > 0))
         })
     }
