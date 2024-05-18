@@ -14,7 +14,7 @@ import { faLock, faUnlock, faAngleUp, faAngleLeft } from '@fortawesome/free-soli
 })
 export class ReportComponent implements OnInit {
     faUnlock = faUnlock; faLock = faLock; faAngleUp = faAngleUp; faAngleLeft = faAngleLeft
-    reports:Report[] = new Array()
+    reports:Report[] = []
     reportID:string = ''
     index:number = -1
     passOk:boolean = false; dialogueOn:boolean = false

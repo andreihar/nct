@@ -15,8 +15,8 @@ import { faAngleUp, faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 })
 export class FormComponent implements OnInit {
     faAngleUp = faAngleUp; faAngleLeft = faAngleLeft
-    locations:Location[] = new Array()
-    reports:Report[] = new Array()
+    locations:Location[] = []
+    reports:Report[] = []
     form:FormGroup
     newLoc:string = ""
     coords:L.LatLng | null = null
@@ -39,7 +39,7 @@ export class FormComponent implements OnInit {
     ngOnInit(): void {
         this.storage.getObservable("locations").subscribe((data:any) => {
             this.locations = JSON.parse(data.data)
-            this.existingLoc = this.locations.length > 0 ? true : false
+            this.existingLoc = !!this.locations.length
         })
         this.storage.getObservable("reports").subscribe((data:any) => {
             this.reports = JSON.parse(data.data)

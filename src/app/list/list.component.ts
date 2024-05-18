@@ -15,13 +15,12 @@ import { faCalendarDays, faEye, faLocationDot, faTrashCan, faLock, faUnlock } fr
 })
 export class ListComponent implements OnInit {
     faTrashCan = faTrashCan; faEye = faEye; faLocationDot = faLocationDot; faCalendarDays = faCalendarDays; faLock = faLock; faUnlock = faUnlock
-    locations:Location[] = new Array()
-    reports:Report[] = new Array()
+    locations:Location[] = []
+    reports:Report[] = []
 
     dialogueOn:boolean = false
     passOk:boolean = false
     deleteID:string = ''
-    // dialogueT:string = "Delete report"; dialogueMessage:string = "Incorrect password. Please double-check and try again."
     dialogueT:string = ""; dialogueMessage:string = ""
     password:string = ''
 
@@ -82,13 +81,11 @@ export class ListComponent implements OnInit {
 
     sort(event:Event) {
         const attr = (event.target as HTMLSelectElement).value
-        this.reports.sort((r1:Report, r2:Report) => {
-            switch (attr) {
-                case 'location': return r1.location.localeCompare(r2.location)
-                case 'name': return r1.name.localeCompare(r2.name)
-                case 'time': return new Date(r1.dateTime).getTime() - new Date(r2.dateTime).getTime()
-                default: return 0
-            }
-        });
+        const sortFunctions: { [key: string]: (r1: Report, r2: Report) => number } = {
+            'location': (r1:Report, r2:Report) => r1.location.localeCompare(r2.location),
+            'name': (r1:Report, r2:Report) => r1.name.localeCompare(r2.name),
+            'time': (r1:Report, r2:Report) => new Date(r1.dateTime).getTime() - new Date(r2.dateTime).getTime()
+        }
+        this.reports.sort(sortFunctions[attr] || (() => 0));
     }
 }
