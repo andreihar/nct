@@ -1,51 +1,6 @@
 main {
     background: url('../../assets/bg.jpg') 64% 0% fixed;
     background-size: cover;
-    font-family: 'Ubuntu', sans-serif;
-}
-main > header {
-    padding: 2em 1em;
-    text-align: center;
-    min-height: 70vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: #ffffff;
-}
-main > header img {
-    width: 140px;
-    max-width: 50%;
-    margin-bottom: 20px;
-}
-main > header h1 {
-    padding: 0 1em;
-    font-size: 48px;
-    margin: 8px 0;
-    font-weight: 700;
-}
-main > header button {
-    margin: 2em 0;
-    border: none;
-    border-radius: 1em;
-    padding: 1em 2em;
-    text-transform: uppercase;
-    font-weight: 700;
-}
-main > header p {
-    max-width: 70%;
-    font-size: 20px;
-    padding-top: 1em;
-}
-.cont {
-    padding: 1em;
-    background-color: #ffffff;
-    margin: 0 15vw;
-}
-.cont header {
-    display: flex;
-    justify-content: space-between;
-    padding: 1em 0;
 }
 .cont header button:hover, button.btn-active {
     background-color: var(--primary);

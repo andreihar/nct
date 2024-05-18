@@ -1,39 +1,39 @@
-<div #top class="wrapper">
-    <header>
-        <h2> <button type="button" class="btn btn-outline-danger" routerLink="/"><fa-icon [icon]="faAngleLeft"></fa-icon></button> Report</h2>
-        <button type="button" class="btn-outline-primary" (click)="openDialogue()">CHANGE STATUS</button>
+<div #top class="wrapper py-4">
+    <header class="d-flex justify-content-between align-items-center py-5">
+        <h2 class="text-primary"> <button type="button" class="btn btn-outline-danger" routerLink="/"><fa-icon [icon]="faAngleLeft"></fa-icon></button> Report</h2>
+        <button type="button" class="btn btn-outline-primary" (click)="openDialogue()">CHANGE STATUS</button>
     </header>
-    <div id="mapid"></div>
+    <div id="mapid" class="w-100"></div>
     <main *ngIf="index !== -1">
-        <section class="cont">
-            <h3>Villain</h3>
+        <section class="bg-light p-3 my-3">
+            <h3 class="text-primary">Villain</h3>
             <p>Name: {{ reports[index].name }}</p>
-            <p id="status">Status: 
-                <span class="green" *ngIf="reports[index]._status === 'RESOLVED'"><fa-icon [icon]="faLock"></fa-icon>{{ reports[index]._status }}</span>
-                <span class="red" *ngIf="reports[index]._status === 'OPEN'"><fa-icon [icon]="faUnlock"></fa-icon>{{ reports[index]._status }}</span>
+            <p>Status: 
+                <span class="bg-success ms-2 text-white py-1 px-2 rounded fs-6 fw-bold" *ngIf="reports[index]._status === 'RESOLVED'"><fa-icon [icon]="faLock" class="me-2"></fa-icon>{{ reports[index]._status }}</span>
+                <span class="bg-danger ms-2 text-white py-1 px-2 rounded fs-6 fw-bold" *ngIf="reports[index]._status === 'OPEN'"><fa-icon [icon]="faUnlock" class="me-2"></fa-icon>{{ reports[index]._status }}</span>
             </p>
             <img id="reportImage" *ngIf="reports[index].picture" src="{{ reports[index].picture }}" alt="{{ reports[index].name }}'s Picture">
         </section>
-        <section class="cont">
-            <h3>Reporter</h3>
+        <section class="bg-light p-3 my-3">
+            <h3 class="text-primary">Reporter</h3>
             <p>Name: {{ reports[index].reporterName }}</p>
             <p>Phone: {{ reports[index].phone }}</p>
         </section>
-        <section class="cont">
-            <h3>Location</h3>
+        <section class="bg-light p-3 my-3">
+            <h3 class="text-primary">Location</h3>
             <p>Location: {{ reports[index].location }}</p>
             <p>Time: {{ reports[index].dateTime | date:'medium' }}</p>
             <p>Extra: {{ reports[index].extra }}</p>
         </section>
     </main>
-    <div class="right">
+    <div class="text-end">
         <button type="button" class="btn btn-outline-primary" (click)="scrollToTop()"><fa-icon [icon]="faAngleUp"></fa-icon></button>
     </div>
 </div>
 
-<dialog id="passDialogue" open *ngIf="dialogueOn">
-    <section class="dialogue">
-        <h3>{{ dialogueT }}</h3>
+<dialog id="passDialogue" class="position-fixed d-flex w-100 h-100 top-0 border-0 flex-column justify-content-center align-items-center" open *ngIf="dialogueOn">
+    <section class="dialogue w-75 bg-white p-3 rounded">
+        <h3 class="text-primary">{{ dialogueT }}</h3>
         <div *ngIf="passOk; then callBack else passForm"></div>
     
         <ng-template #passForm>
@@ -44,12 +44,12 @@
             </form>
             <div class="d-flex justify-content-between">
                 <button type="button" class="btn btn-outline-danger" (click)="closeDialogue()">CANCEL</button>
-                <button type="button" class="btn-outline-primary" (click)="changeStatus()">CHANGE</button>
+                <button type="button" class="btn btn-outline-primary" (click)="changeStatus()">CHANGE</button>
             </div>
         </ng-template>
         <ng-template #callBack>
             <div id="val-msg">{{ dialogueMessage }}</div>
-            <div class="right">
+            <div class="text-end">
                 <button type="button" class="btn btn-outline-danger" (click)="closeDialogue()">CLOSE</button>
             </div>
         </ng-template>

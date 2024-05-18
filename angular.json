@@ -53,9 +53,9 @@
               }
             ],
             "styles": [
-              "./node_modules/leaflet/dist/leaflet.css",
               "src/styles.css",
-              "./node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "src/custom.scss",
+              "./node_modules/leaflet/dist/leaflet.css"
             ],
             "scripts": []
           },

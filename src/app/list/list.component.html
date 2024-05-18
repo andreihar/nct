@@ -1,6 +1,6 @@
-<div id="sort">
+<div class="d-flex align-items-center mb-3 gap-3">
     <label for="sortAttr">Sort by:</label>
-    <select id="sortAttr" class="form-select" (change)="sort($event)" [disabled]="reports.length === 0">
+    <select id="sortAttr" class="form-select" style="max-width: 7.5em;" (change)="sort($event)" [disabled]="reports.length === 0">
         <option value="time" selected>Time</option>
         <option value="name">Name</option>
         <option value="location">Location</option>
@@ -14,22 +14,22 @@
                 <p class="fw-bold mb-1">{{ report.name }}</p>
                 <p class="text-muted mb-0"><fa-icon [icon]="faLocationDot"></fa-icon> {{ report.location }}</p>
                 <p class="text-muted mb-0"><fa-icon [icon]="faCalendarDays"></fa-icon> {{ report.dateTime | date:'medium' }}</p>
-                <p id="status" class="mb-0">
-                    <span class="green" *ngIf="report._status === 'RESOLVED'"><fa-icon [icon]="faLock"></fa-icon>{{ report._status }}</span>
-                    <span class="red" *ngIf="report._status === 'OPEN'"><fa-icon [icon]="faUnlock"></fa-icon>{{ report._status }}</span>
+                <p class="mb-0">
+                    <span class="bg-success text-white py-1 px-2 rounded fs-6 fw-bold" *ngIf="report._status === 'RESOLVED'"><fa-icon [icon]="faLock" class="me-2"></fa-icon>{{ report._status }}</span>
+                    <span class="bg-danger text-white py-1 px-2 rounded fs-6 fw-bold" *ngIf="report._status === 'OPEN'"><fa-icon [icon]="faUnlock" class="me-2"></fa-icon>{{ report._status }}</span>
                 </p>
             </div>
         </div>
         <div>
-            <button type="button" class="btn btn-light btn-circle btn-md" (click)="viewReport(report.reportID)"><fa-icon [icon]="faEye"></fa-icon></button>
-            <button type="button" class="btn btn-danger btn-circle btn-md" (click)="openDialogue(report.reportID)"><fa-icon [icon]="faTrashCan"></fa-icon></button>
+            <button type="button" class="btn btn-light btn-circle btn-md m-0 mx-1" (click)="viewReport(report.reportID)"><fa-icon [icon]="faEye"></fa-icon></button>
+            <button type="button" class="btn btn-danger btn-circle btn-md m-0 mx-1" (click)="openDialogue(report.reportID)"><fa-icon [icon]="faTrashCan"></fa-icon></button>
         </div>
     </li>
 </ul>
 
-<dialog id="passDialogue" open *ngIf="dialogueOn">
-    <section class="dialogue">
-        <h3>{{ dialogueT }}</h3>
+<dialog id="passDialogue" class="position-fixed d-flex w-100 h-100 top-0 border-0 flex-column justify-content-center align-items-center" open *ngIf="dialogueOn">
+    <section class="dialogue w-75 bg-white p-3 rounded">
+        <h3 class="text-primary">{{ dialogueT }}</h3>
         <div *ngIf="passOk; then callBack else passForm"></div>
         
         <ng-template #passForm>
@@ -45,8 +45,8 @@
         </ng-template>
         <ng-template #callBack>
             <div id="val-msg">{{ dialogueMessage }}</div>
-            <div class="right">
-                <button type="button" class="btn-outline-primary" (click)="closeDialogue()">CLOSE</button>
+            <div class="text-end">
+                <button type="button" class="btn btn-outline-primary" (click)="closeDialogue()">CLOSE</button>
             </div>
         </ng-template>
     </section>
