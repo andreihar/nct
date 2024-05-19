@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { faList, faMap } from '@fortawesome/free-solid-svg-icons';
+import { faListUl, faEarthAmericas } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
     selector: 'app-home',
@@ -8,7 +8,7 @@ import { faList, faMap } from '@fortawesome/free-solid-svg-icons';
     styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-    faMap = faMap; faList = faList
+    faEarthAmericas = faEarthAmericas; faListUl = faListUl
     mapOn:boolean = true
     
     constructor(private router:Router) {}

@@ -9,8 +9,8 @@
             <h3 class="text-primary">Villain</h3>
             <p>Name: {{ reports[index].name }}</p>
             <p>Status: 
-                <span class="bg-success ms-2 text-white py-1 px-2 rounded fs-6 fw-bold" *ngIf="reports[index]._status === 'RESOLVED'"><fa-icon [icon]="faLock" class="me-2"></fa-icon>{{ reports[index]._status }}</span>
-                <span class="bg-danger ms-2 text-white py-1 px-2 rounded fs-6 fw-bold" *ngIf="reports[index]._status === 'OPEN'"><fa-icon [icon]="faUnlock" class="me-2"></fa-icon>{{ reports[index]._status }}</span>
+                <span class="bg-success ms-2 text-white py-1 px-2 rounded fs-6" *ngIf="reports[index]._status === 'RESOLVED'"><fa-icon [icon]="faLock" class="me-2"></fa-icon>{{ reports[index]._status }}</span>
+                <span class="bg-danger ms-2 text-white py-1 px-2 rounded fs-6" *ngIf="reports[index]._status === 'OPEN'"><fa-icon [icon]="faUnlock" class="me-2"></fa-icon>{{ reports[index]._status }}</span>
             </p>
             <img id="reportImage" *ngIf="reports[index].picture" src="{{ reports[index].picture }}" alt="{{ reports[index].name }}'s Picture">
         </section>
@@ -40,7 +40,7 @@
             <form method="dialog">
                 <p>Type in the password to change the status</p>
                 <label for="pass">Password</label>
-                <input type="password" class="form-control mb-3" id="pass">
+                <input type="password" class="form-control mb-3" id="pass" (keydown.enter)="changeStatus()">
             </form>
             <div class="d-flex justify-content-between">
                 <button type="button" class="btn btn-outline-danger" (click)="closeDialogue()">CANCEL</button>

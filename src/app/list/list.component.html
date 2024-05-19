@@ -13,10 +13,10 @@
             <div class="ms-3">
                 <p class="fw-bold mb-1">{{ report.name }}</p>
                 <p class="text-muted mb-0"><fa-icon [icon]="faLocationDot"></fa-icon> {{ report.location }}</p>
-                <p class="text-muted mb-0"><fa-icon [icon]="faCalendarDays"></fa-icon> {{ report.dateTime | date:'medium' }}</p>
-                <p class="mb-0">
-                    <span class="bg-success text-white py-1 px-2 rounded fs-6 fw-bold" *ngIf="report._status === 'RESOLVED'"><fa-icon [icon]="faLock" class="me-2"></fa-icon>{{ report._status }}</span>
-                    <span class="bg-danger text-white py-1 px-2 rounded fs-6 fw-bold" *ngIf="report._status === 'OPEN'"><fa-icon [icon]="faUnlock" class="me-2"></fa-icon>{{ report._status }}</span>
+                <p class="text-muted mb-2"><fa-icon [icon]="faCalendarDays"></fa-icon> {{ report.dateTime | date:'medium' }}</p>
+                <p class="mb-1">
+                    <span class="bg-success text-white py-1 px-2 rounded fs-6" *ngIf="report._status === 'RESOLVED'"><fa-icon [icon]="faLock" class="me-2"></fa-icon>{{ report._status }}</span>
+                    <span class="bg-danger text-white py-1 px-2 rounded fs-6" *ngIf="report._status === 'OPEN'"><fa-icon [icon]="faUnlock" class="me-2"></fa-icon>{{ report._status }}</span>
                 </p>
             </div>
         </div>

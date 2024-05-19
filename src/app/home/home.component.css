@@ -4,11 +4,14 @@ main {
 }
 .cont header button:hover, button.btn-active {
     background-color: var(--primary);
-    color: #ffffff;
+    color: #ffffff !important;
 }
 .cont header button.btn-active:hover {
     cursor: default;
 }
 .btn-group {
     border: 1px solid var(--primary);
+}
+.btn-group .btn:hover fa-icon, .btn-group .btn-active fa-icon {
+    color: #ffffff !important;
 }
