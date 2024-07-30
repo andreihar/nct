@@ -19,17 +19,3 @@ header, legend, span, h1, h2, h3, .controls, #mapid {
     height: 70vh;
     min-height: 18em;
 }
-
-/* Scrollbar */
-::-webkit-scrollbar {
-    width: 10px;
-}
-::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, .15);
-}
-::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, .34);
-}
-::-webkit-scrollbar-thumb:hover {
-    background: rgba(0, 0, 0, .60);
-}

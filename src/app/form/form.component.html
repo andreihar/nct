@@ -1,84 +1,84 @@
 <div #top class="wrapper py-4">
-    <header class="pt-5">
-        <h2 class="text-primary"><button type="button" class="btn btn-outline-danger" routerLink="/"><fa-icon [icon]="faAngleLeft"></fa-icon></button> Create Report</h2>
-    </header>
-    <main>
-        <form class="form-group" [formGroup]="form" (ngSubmit)="onSubmit()">
-            <fieldset class="p-3 my-3">
+	<header class="pt-5">
+		<h2 class="text-primary"><button type="button" class="btn btn-outline-danger" routerLink="/" aria-label="Go Back"><fa-icon [icon]="faAngleLeft"></fa-icon></button> Create Report</h2>
+	</header>
+	<main>
+		<form class="form-group" [formGroup]="form" (ngSubmit)="onSubmit()">
+			<fieldset class="p-3 my-3">
 				<legend class="text-primary">Reporter</legend>
 				<div class="form-group">
-                    <label class="mb-2 mt-3" for="reporterName">Your Name *</label>
-                    <input type="text" class="form-control" name="reporterName" placeholder="John Smith" formControlName="reporterName"
+					<label class="mb-2 mt-3" for="reporterName">Your Name *</label>
+					<input type="text" class="form-control" id="reporterName" name="reporterName" placeholder="John Smith" formControlName="reporterName"
 						[ngClass]="{'is-invalid': (form.controls['reporterName'].dirty) && form.controls['reporterName'].errors}">
-                    <div class="invalid-feedback">Please enter a non-empty name</div>
-                </div>
+					<div class="invalid-feedback">Please enter a non-empty name</div>
+				</div>
 				<div class="form-group">
 					<label class="mb-2 mt-3" for="phone">Contact Number *</label>
-					<input type="text" class="form-control" name="phone" placeholder="2505550196" formControlName="phone"
+					<input type="text" class="form-control" id="phone" name="phone" placeholder="2505550196" formControlName="phone"
 						[ngClass]="{'is-invalid': (form.controls['phone'].dirty) && form.controls['phone'].errors}">
 					<div class="invalid-feedback">Phone number must be 10 digits</div>
 				</div>
 			</fieldset>
-            <fieldset class="p-3 my-3">
+			<fieldset class="p-3 my-3">
 				<legend class="text-primary">Villain</legend>
 				<div class="form-group">
 					<label class="mb-2 mt-3" for="name">Name *</label>
-                    <input type="text" class="form-control" name="name" placeholder="Monster X" formControlName="name"
+					<input type="text" class="form-control" id="name" name="name" placeholder="Monster X" formControlName="name"
 						[ngClass]="{'is-invalid': (form.controls['name'].dirty) && form.controls['name'].errors}">
-                    <div class="invalid-feedback">Please enter a non-empty name</div>
+					<div class="invalid-feedback">Please enter a non-empty name</div>
 				</div>
 				<div class="form-group">
 					<label class="mb-2 mt-3" for="picture">Image URL (optional)</label>
-					<input type="text" class="form-control" name="picture" formControlName="picture">
+					<input type="text" class="form-control" id="picture" name="picture" formControlName="picture">
 				</div>
 				<div class="form-group">
 					<label class="mb-2 mt-3" for="extra">Extra (optional)</label>
-					<textarea rows="5" class="form-control" type="text" name="extra" formControlName="extra"></textarea>
+					<textarea rows="5" class="form-control" id="extra" name="extra" formControlName="extra"></textarea>
 				</div>
 			</fieldset>
-            <fieldset class="p-3 my-3">
-                <legend class="text-primary">Location</legend>
-                <div class="form-group">
-                    <div class="card">
-                        <div class="card-header">
-                          <ul class="nav nav-tabs card-header-tabs">
-                            <li class="nav-item"><button type="button" class="locationOptBar nav-link" [ngClass]="{ 'active': existingLoc }" (click)="toggle(true)">Locations List</button></li>
-                            <li class="nav-item"><button type="button" class="locationOptBar nav-link" [ngClass]="{ 'active': !existingLoc }" (click)="toggle(false)">New Location</button></li>
-                          </ul>
-                        </div>
-                        <div class="card-body">
-                            <div *ngIf="existingLoc; then locList else newLocation"></div>
-                            <ng-template #locList>
-                                <label class="mb-2 mt-3" for="location">Location *</label>
-                                <select class="form-select" aria-label=".form-select-lg example" id="location" [ngClass]="{'is-invalid': (form.controls['location'].dirty || existingLoc) && !locValid }" (change)="verifyLocation($event)" formControlName="location">
-                                    <option id="defaultOpt" selected disabled value="null">Choose a location</option>
-                                    <option *ngFor="let location of locations" [ngValue]="location.coords">{{ location.name }}</option>
-                                </select>
-                                <div class="invalid-feedback">Please choose a location</div>
-                            </ng-template>
-                            <ng-template #newLocation>
-                                <section>
-                                    <label class="mb-2 mt-3">Location * <small>(click on map to pin)</small></label>
-                                    <div class="map w-100">
-                                        <div appMapForm (coords)="updateCoords($event)" style="width:100%; height:100%;"></div>
-                                    </div>
-                                    <div *ngIf="!verifyPin()" class="invalid-feedback d-block">{{ mapErr }}</div>
-                                </section>
-                                <section>
-                                    <label class="mb-2 mt-3" for="newLocation">Location name *</label>
-                                    <input class="form-control" name="newLocation" type="text" id="newLocation" [ngClass]="{ 'is-invalid': (!existingLoc && !newLocValid) }" (input)="verifyNewLocation()" formControlName="newLocation">
-                                    <div class="invalid-feedback">{{ locationErr }}</div>
-                                </section>
-                            </ng-template>
-                        </div>
-                    </div>
-                </div>
-            </fieldset>
-            <div class="controls d-flex justify-content-between">
-                <div></div>
-                <button type="button" class="btn btn-lg btn-outline-primary" (click)="onSubmit()">SUBMIT</button>
-                <button type="button" class="btn btn-outline-primary" (click)="scrollToTop()"><fa-icon [icon]="faAngleUp"></fa-icon></button>
-            </div>
-        </form>
-    </main>
+			<fieldset class="p-3 my-3">
+				<legend class="text-primary">Location</legend>
+				<div class="form-group">
+					<div class="card">
+						<div class="card-header">
+							<ul class="nav nav-tabs card-header-tabs">
+								<li class="nav-item"><button type="button" class="locationOptBar nav-link" [ngClass]="{ 'active': existingLoc }" (click)="toggle(true)" aria-label="List of Existing Locations">Locations List</button></li>
+								<li class="nav-item"><button type="button" class="locationOptBar nav-link" [ngClass]="{ 'active': !existingLoc }" (click)="toggle(false)" aria-label="Add a New Location">New Location</button></li>
+							</ul>
+						</div>
+						<div class="card-body">
+							<div *ngIf="existingLoc; then locList else newLocation"></div>
+							<ng-template #locList>
+								<label class="mb-2 mt-3" for="location">Location *</label>
+								<select class="form-select" aria-label=".form-select-lg example" id="location" [ngClass]="{'is-invalid': (form.controls['location'].dirty || existingLoc) && !locValid }" (change)="verifyLocation($event)" formControlName="location">
+									<option id="defaultOpt" selected disabled value="null">Choose a location</option>
+									<option *ngFor="let location of locations" [ngValue]="location.coords">{{ location.name }}</option>
+								</select>
+								<div class="invalid-feedback">Please choose a location</div>
+							</ng-template>
+							<ng-template #newLocation>
+								<section>
+									<label class="mb-2 mt-3">Location * <small>(click on map to pin)</small></label>
+									<div class="map w-100">
+										<div appMapForm (coords)="updateCoords($event)" style="width:100%; height:100%;"></div>
+									</div>
+									<div *ngIf="!verifyPin()" class="invalid-feedback d-block">{{ mapErr }}</div>
+								</section>
+								<section>
+									<label class="mb-2 mt-3" for="newLocation">Location name *</label>
+									<input class="form-control" name="newLocation" type="text" id="newLocation" [ngClass]="{ 'is-invalid': (!existingLoc && !newLocValid) }" (input)="verifyNewLocation()" formControlName="newLocation">
+									<div class="invalid-feedback">{{ locationErr }}</div>
+								</section>
+							</ng-template>
+						</div>
+					</div>
+				</div>
+			</fieldset>
+			<div class="controls d-flex justify-content-between">
+				<div></div>
+				<button type="button" class="btn btn-lg btn-outline-primary text-uppercase" (click)="onSubmit()" aria-label="Submit Form">Submit</button>
+				<button type="button" class="btn btn-outline-primary" (click)="scrollToTop()" aria-label="Scroll to Top"><fa-icon [icon]="faAngleUp"></fa-icon></button>
+			</div>
+		</form>
+	</main>
 </div>

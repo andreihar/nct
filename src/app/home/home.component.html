@@ -1,18 +1,18 @@
 <main>
-    <header class="text-white py-4 px-3 text-center d-flex flex-column align-items-center justify-content-center" style="min-height: 70vh">
-        <img src="../../assets/logo.svg" alt="Night Crusade Titals Logo" class="img-fluid mb-4" style="width: 140px">
-        <h1 class="mt-3 mb-2 px-3 fs-1 fw-bold">Night Crusade Titans</h1>
-        <p class="w-75 fs-4 pt-4">Aid NCT's Dance Guardians: Safeguarding the Lower Mainland, One Groove, One Report at a Time!</p>
-        <button type="button" class="btn btn-light text-primary my-4 text-uppercase fw-bold px-5 py-3" routerLink="/create">CREATE NUISANCE REPORT</button>
-    </header>
-    <section class="cont rounded-top p-3 bg-white mx-auto" style="max-width: 70%">
-        <header class="d-flex justify-content-between py-3">
-            <h2 class="text-primary">Reports</h2>
-            <div class="btn-group">
-                <button type="button" class="btn" [ngClass]="{'btn-active':mapOn}" routerLink="/map" (click)="toggleView(true)"><fa-icon [icon]="faEarthAmericas" class="text-primary"></fa-icon></button>
-                <button type="button" class="btn" [ngClass]="{'btn-active':!mapOn}" routerLink="/list" (click)="toggleView(false)"><fa-icon [icon]="faListUl" class="text-primary"></fa-icon></button>
-            </div>
-        </header>
-        <router-outlet></router-outlet>
-    </section>
+	<header class="text-white py-4 px-3 text-center d-flex flex-column align-items-center justify-content-center" style="min-height: 70vh">
+		<img src="../../assets/logo.svg" alt="Night Crusade Titals Logo" class="img-fluid mb-4" style="width: 140px">
+		<h1 class="mt-3 mb-2 px-3 fs-1 fw-bold">Night Crusade Titans</h1>
+		<p class="w-75 fs-4 pt-4">Aid NCT's Dance Guardians: Safeguarding the Lower Mainland, One Groove, One Report at a Time!</p>
+		<button type="button" class="btn btn-light text-primary my-4 text-uppercase fw-bold px-5 py-3" routerLink="/create" aria-label="Create Nuisance Report">Create Nuisance Report</button>
+	</header>
+	<section class="cont rounded-top p-3 bg-white mx-auto" style="max-width: 70%">
+		<header class="d-flex justify-content-between py-3">
+			<h2 class="text-primary">Reports</h2>
+			<div class="btn-group">
+				<button type="button" class="btn" [ngClass]="{'btn-active':mapOn}" routerLink="/map" (click)="toggleView(true)" aria-label="Map View"><fa-icon [icon]="faEarthAmericas" class="text-primary"></fa-icon></button>
+				<button type="button" class="btn" [ngClass]="{'btn-active':!mapOn}" routerLink="/list" (click)="toggleView(false)" aria-label="List View"><fa-icon [icon]="faListUl" class="text-primary"></fa-icon></button>
+			</div>
+		</header>
+		<router-outlet></router-outlet>
+	</section>
 </main>

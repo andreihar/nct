@@ -1,53 +1,53 @@
 <div class="d-flex align-items-center mb-3 gap-3">
-    <label for="sortAttr">Sort by:</label>
-    <select id="sortAttr" class="form-select" style="max-width: 7.5em;" (change)="sort($event)" [disabled]="reports.length === 0">
-        <option value="time" selected>Time</option>
-        <option value="name">Name</option>
-        <option value="location">Location</option>
-    </select>
+	<label for="sortAttr">Sort by:</label>
+	<select id="sortAttr" class="form-select" style="max-width: 7.5em;" (change)="sort($event)" [disabled]="reports.length === 0">
+		<option value="time" selected>Time</option>
+		<option value="name">Name</option>
+		<option value="location">Location</option>
+	</select>
 </div>
 <ul class="list-group list-group-light">
-    <li *ngIf="reports.length === 0" class="list-group-item d-flex justify-content-center align-items-center text-center">No cases reported<br>Please click on CREATE NUISANCE REPORT to add a report</li>
-    <li *ngFor="let report of reports" [attr.id]="report.reportID" class="list-group-item d-flex justify-content-between align-items-center">
-        <div class="d-flex align-items-center">
-            <div class="ms-3">
-                <p class="fw-bold mb-1">{{ report.name }}</p>
-                <p class="text-muted mb-0"><fa-icon [icon]="faLocationDot"></fa-icon> {{ report.location }}</p>
-                <p class="text-muted mb-2"><fa-icon [icon]="faCalendarDays"></fa-icon> {{ report.dateTime | date:'medium' }}</p>
-                <p class="mb-1">
-                    <span class="bg-success text-white py-1 px-2 rounded fs-6" *ngIf="report._status === 'RESOLVED'"><fa-icon [icon]="faLock" class="me-2"></fa-icon>{{ report._status }}</span>
-                    <span class="bg-danger text-white py-1 px-2 rounded fs-6" *ngIf="report._status === 'OPEN'"><fa-icon [icon]="faUnlock" class="me-2"></fa-icon>{{ report._status }}</span>
-                </p>
-            </div>
-        </div>
-        <div>
-            <button type="button" class="btn btn-light btn-circle btn-md m-0 mx-1" (click)="viewReport(report.reportID)"><fa-icon [icon]="faEye"></fa-icon></button>
-            <button type="button" class="btn btn-danger btn-circle btn-md m-0 mx-1" (click)="openDialogue(report.reportID)"><fa-icon [icon]="faTrashCan"></fa-icon></button>
-        </div>
-    </li>
+	<li *ngIf="reports.length === 0" class="list-group-item d-flex justify-content-center align-items-center text-center">No cases reported<br>Please click on CREATE NUISANCE REPORT to add a report</li>
+	<li *ngFor="let report of reports" [attr.id]="report.reportID" class="list-group-item d-flex justify-content-between align-items-center">
+		<div class="d-flex align-items-center">
+			<div class="ms-3">
+				<p class="fw-bold mb-1">{{ report.name }}</p>
+				<p class="text-muted mb-0"><fa-icon [icon]="faLocationDot"></fa-icon> {{ report.location }}</p>
+				<p class="text-muted mb-2"><fa-icon [icon]="faCalendarDays"></fa-icon> {{ report.dateTime | date:'medium' }}</p>
+				<p class="mb-1">
+					<span class="bg-success text-white py-1 px-2 rounded fs-6" *ngIf="report._status === 'RESOLVED'"><fa-icon [icon]="faLock" class="me-2"></fa-icon>{{ report._status }}</span>
+					<span class="bg-danger text-white py-1 px-2 rounded fs-6" *ngIf="report._status === 'OPEN'"><fa-icon [icon]="faUnlock" class="me-2"></fa-icon>{{ report._status }}</span>
+				</p>
+			</div>
+		</div>
+		<div>
+			<button type="button" class="btn btn-light btn-circle btn-md m-0 mx-1" (click)="viewReport(report.reportID)" aria-label="View Report"><fa-icon [icon]="faEye"></fa-icon></button>
+			<button type="button" class="btn btn-danger btn-circle btn-md m-0 mx-1" (click)="openDialogue(report.reportID)" aria-label="Delete Report"><fa-icon [icon]="faTrashCan"></fa-icon></button>
+		</div>
+	</li>
 </ul>
 
 <dialog id="passDialogue" class="position-fixed d-flex w-100 h-100 top-0 border-0 flex-column justify-content-center align-items-center" open *ngIf="dialogueOn">
-    <section class="dialogue w-75 bg-white p-3 rounded">
-        <h3 class="text-primary">{{ dialogueT }}</h3>
-        <div *ngIf="passOk; then callBack else passForm"></div>
-        
-        <ng-template #passForm>
-            <form (submit)="deleteReport()">
-                <p>Enter the password</p>
-                <label for="pass">Password</label>
-                <input type="password" class="form-control mb-3" id="pass" name="password" [(ngModel)]="password">
-                <div class="d-flex justify-content-between">
-                    <button type="button" class="btn btn-outline-primary" (click)="closeDialogue()">CANCEL</button>
-                    <button type="button" class="btn btn-outline-danger" (click)="deleteReport()">DELETE</button>
-                </div>
-            </form>
-        </ng-template>
-        <ng-template #callBack>
-            <div id="val-msg">{{ dialogueMessage }}</div>
-            <div class="text-end">
-                <button type="button" class="btn btn-outline-primary" (click)="closeDialogue()">CLOSE</button>
-            </div>
-        </ng-template>
-    </section>
+	<section class="dialogue w-75 bg-white p-3 rounded">
+		<h3 class="text-primary">{{ dialogueT }}</h3>
+		<div *ngIf="passOk; then callBack else passForm"></div>
+		
+		<ng-template #passForm>
+			<form (submit)="deleteReport()">
+				<p>Enter the password</p>
+				<label for="pass">Password</label>
+				<input type="password" class="form-control mb-3" id="pass" name="password" [(ngModel)]="password">
+				<div class="d-flex justify-content-between">
+					<button type="button" class="btn btn-outline-primary text-uppercase" (click)="closeDialogue()" aria-label="Cancel">Cancel</button>
+					<button type="submit" class="btn btn-outline-danger text-uppercase" (click)="deleteReport()" aria-label="Delete Report">Delete</button>
+				</div>
+			</form>
+		</ng-template>
+		<ng-template #callBack>
+			<div id="val-msg">{{ dialogueMessage }}</div>
+			<div class="text-end">
+				<button type="button" class="btn btn-outline-primary text-uppercase" (click)="closeDialogue()" aria-label="Close Dialogue">Close</button>
+			</div>
+		</ng-template>
+	</section>
 </dialog>
