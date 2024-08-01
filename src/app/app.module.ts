@@ -15,6 +15,7 @@ import { LatlngPipe } from './latlng.pipe';
 import { ListComponent } from './list/list.component';
 import { MapFormDirective } from './map-form.directive';
 import { MapComponent } from './map/map.component';
+import { SitemapComponent } from './sitemap/sitemap.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { MapComponent } from './map/map.component';
     MapComponent,
     ListComponent,
     LatlngPipe,
-    MapFormDirective
+    MapFormDirective,
+    SitemapComponent
   ],
   imports: [
     BrowserModule,
