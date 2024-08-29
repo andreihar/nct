@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+	<url>
+		<loc>https://nct.andreihar.com/</loc>
+		<lastmod>2024-07-30T07:01:00.000Z</lastmod>
+		<changefreq>never</changefreq>
+		<priority>1.0</priority>
+	</url>
+	<url>
+		<loc>https://nct.andreihar.com/list/</loc>
+		<lastmod>2024-07-30T07:01:00.000Z</lastmod>
+		<changefreq>never</changefreq>
+		<priority>0.5</priority>
+	</url>
+	<url>
+		<loc>https://nct.andreihar.com/map/</loc>
+		<lastmod>2024-07-30T07:01:00.000Z</lastmod>
+		<changefreq>never</changefreq>
+		<priority>0.8</priority>
+	</url>
+	<url>
+		<loc>https://nct.andreihar.com/report/fcde6a80-fbeb-4ff1-8937-32e1da20c026</loc>
+		<lastmod>2024-07-30T07:01:00.000Z</lastmod>
+		<changefreq>never</changefreq>
+		<priority>0.5</priority>
+	</url>
+	<url>
+		<loc>https://nct.andreihar.com/report/70a2f528-7ade-4595-a569-00a194ab51b0</loc>
+		<lastmod>2024-07-30T07:01:00.000Z</lastmod>
+		<changefreq>never</changefreq>
+		<priority>0.5</priority>
+	</url>
+	<url>
+		<loc>https://nct.andreihar.com/report/09c4f74d-bc07-4ddc-aa4a-fafba8b5e373</loc>
+		<lastmod>2024-07-30T07:01:00.000Z</lastmod>
+		<changefreq>never</changefreq>
+		<priority>0.5</priority>
+	</url>
+</urlset>
