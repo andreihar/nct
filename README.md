@@ -114,7 +114,7 @@ The website can be accessed through the URL `http://localhost:4200/`.
 The Home Page serves as the central hub for users to navigate through different aspects of the application. It includes a switch for toggling between the Map and Data List views.
 
 <p align="center">
-<img src="readme/home.jpg" alt="Home Page" height="450">
+<img src="readme/home.jpg" alt="Home Page" width="550">
 </p>
 
 #### Map Display
@@ -122,7 +122,7 @@ The Home Page serves as the central hub for users to navigate through different 
 A map displays all reported nuisances on an interactive map with markers. Users can interact with the markers to view the number of reports for each location.
 
 <p align="center">
-<img src="readme/map.jpg" alt="Map View" height="450">
+<img src="readme/map.jpg" alt="Map View" width="550">
 </p>
 
 #### Data List
@@ -130,7 +130,7 @@ A map displays all reported nuisances on an interactive map with markers. Users 
 A list presents a dynamic data table listing all nuisance reports. Users can sort the data by Time, Name, and Location. This provides a detailed and sortable overview of reported incidents.
 
 <p align="center">
-<img src="readme/list.jpg" alt="List View" height="450">
+<img src="readme/list.jpg" alt="List View" width="550">
 </p>
 
 ### Report Management
@@ -138,7 +138,7 @@ A list presents a dynamic data table listing all nuisance reports. Users can sor
 Users can modify the report status or delete reports with a valid passcode ("BaggyJeans"). The app uses MD5 hash for password verification.
 
 <p align="center">
-<img src="readme/report.jpg" alt="Report Details" height="450">
+<img src="readme/report.jpg" alt="Report Details" width="550">
 </p>
 
 ### Report Creation
@@ -146,7 +146,7 @@ Users can modify the report status or delete reports with a valid passcode ("Bag
 Users can generate reports through a "CREATE NUISANCE REPORT" button, revealing a user-friendly report form.
 
 <p align="center">
-<img src="readme/form.jpg" alt="Form" height="450">
+<img src="readme/form.jpg" alt="Form" width="550">
 </p>
 
 
@@ -155,7 +155,7 @@ Users can generate reports through a "CREATE NUISANCE REPORT" button, revealing 
 ## Lighthouse Report
 
 <p align="center">
-<img src="readme/audit.jpg" alt="Audit" height="150">
+<img src="readme/audit.jpg" alt="Audit" width="500">
 </p>
 
 
