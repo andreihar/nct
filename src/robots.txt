@@ -1,5 +1,4 @@
 User-agent: *
-Allow: /
 Disallow: /create
 
 Sitemap: https://nct.andreihar.com/sitemap.xml
